@@ -1,0 +1,29 @@
+<div class="outer-container">
+    <div class="row p-5 justify-content-center d-flex">
+        <button class="btn btn-success" (click)="openModal(modal)">
+            Click to open Modal
+        </button>
+    </div>
+</div>
+
+<ng-template #modal>
+    <div class="modal-body pt-0 bg-gray" [style.left]="left_weight + px">
+        <div class="row text-light bg-dark ">
+            <div class="col-6">
+                <span class="p-2 float-left"> Draggable Modal</span>
+            </div>
+            <div class="col-6">
+                <mat-slide-toggle color="primary" [checked]="isChecked" class="p-2 float-right">Keyboard
+                </mat-slide-toggle>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-6">
+                <button class="btn btn-secondary float-left m-2" (click)="closeModal()"> Close Existing </button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-info float-right m-2" (click)="openModal(modal)"> Open New Modal </button>
+            </div>
+        </div>
+    </div>
+</ng-template>
