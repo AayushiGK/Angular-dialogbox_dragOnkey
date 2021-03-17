@@ -17,49 +17,24 @@ export const ModalConfig: NgbModalOptions = {
   styleUrls: ['./modals.component.css']
 })
 export class ModalsComponent implements OnInit {
-
-  public modalRef: NgbModalRef;
+  public modal_count=5;
   public isChecked: boolean = false;
   public left_weight = 0;
   public top_weight = 0;
-  modalOptions: NgbModalOptions = ModalConfig;
   constructor(public modalService: NgbModal, private activeModal: NgbActiveModal) { }
 
-  ngOnInit(): void {  }
-
-  openModal(modalValue) {
-    this.modalRef = this.modalService.open(modalValue, this.modalOptions);
+  ngOnInit(): void {
+    var ele = document.getElementById("dragElement");
+    ele.style.display ="none";
   }
 
-  closeModal() {
-    this.modalRef.close();
-  }
-
-  @HostListener('window:keyup', ['$event'])
-  keyEvent(event: KeyboardEvent) {
-    console.log(event);
-
-    if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
-      this.left();
-    }
-
-    if (event.keyCode === KEY_CODE.LEFT_ARROW) {
-      this.left();
-    }
-    if (event.keyCode === KEY_CODE.UP_ARROW) {
-      this.top();
-    }
-
-    if (event.keyCode === KEY_CODE.DOWN_ARROW) {
-      this.top();
+  popUp() {
+    var x = document.getElementById("dragElement");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
     }
   }
 
-  left() {
-    this.left_weight++;
-  }
-
-  top() {
-    this.top_weight++;
-  }
 }
