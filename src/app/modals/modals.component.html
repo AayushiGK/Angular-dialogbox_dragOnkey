@@ -1,10 +1,35 @@
-
 <div class="container">
     <div id="dropzone" class="row p-5 justify-content-center d-flex">
         <button class="btn btn-success" (click)="popUp()"> Click to open Modal </button>
     </div>
 
-    <div id="dragElement" class="bg-white draggable" style="width: 550px;">
+    <div id="dragElement" class="border border-dark bg-white draggable" style="width: 550px;"
+        [ngStyle]="{ left: move_X_axis + 'px', top: move_Y_axis + 'px' }">
+        <div class="modal-body pt-0 bg-gray">
+            <div class="row text-light bg-dark ">
+                <div class="col-6">
+                    <span class="p-2 float-left"> Draggable Modal</span>
+                </div>
+                <div class="col-6">
+                    <mat-slide-toggle color="primary" [(ngModel)]="isChecked" class="p-2 float-right">Keyboard
+                    </mat-slide-toggle>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <p class="px-5"> Content for the draggable popUp can be written here </p>
+                <div class="col-6">
+                    <button class="btn btn-secondary float-left m-2" (click)="close()"> Close Existing </button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-info float-right m-2" (click)="modalOpen(modal)"> Open New Modal </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #modal>
+    <div class="bg-white" id="dragElement" cdkDrag>
         <div class="modal-body pt-0 bg-gray">
             <div class="row text-light bg-dark ">
                 <div class="col-6">
@@ -17,12 +42,9 @@
             </div>
             <div class="row pt-5">
                 <div class="col-6">
-                    <button class="btn btn-secondary float-left m-2"> Close Existing </button>
-                </div>
-                <div class="col-6">
-                    <button class="btn btn-info float-right m-2"> Open New Modal </button>
+                    <button class="btn btn-secondary float-left m-2" (click)="closeModal()"> Close Existing </button>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</ng-template>

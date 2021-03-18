@@ -13,9 +13,6 @@
   <!-- Script to drag the modal around with .draggable class mentioned in modal html -->
   <script>
     let isDragging = false;
-    document.addEventListener('keyup',(ev)=>{
-      console.log('ev', ev)
-    })
     document.addEventListener('mousedown', function (event) {
       let dragElement = event.target.closest('.draggable');
       if (!dragElement) return;
@@ -87,10 +84,9 @@
 
     });
   </script>
-
 </head>
 
-<body class="w-100 h-100 bg-secondary">
+<body class="w-100 overflow-hidden bg-light">
   <app-root></app-root>
 </body>
 
