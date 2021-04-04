@@ -1,5 +1,7 @@
 # FlytBase
 
+![image](https://user-images.githubusercontent.com/41955105/113501945-a72e2280-9546-11eb-8c93-c1e09b90fd0c.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
 ## Development server
